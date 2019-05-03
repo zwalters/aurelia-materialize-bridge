@@ -1,27 +1,22 @@
 import * as tslib_1 from "tslib";
-import { autoinject, bindable } from "aurelia-framework";
-import { getBooleanFromAttributeValue } from "../common/attributes";
-import { fireEvent } from "../common/events";
-var MdChip = /** @class */ (function () {
-    function MdChip(element) {
+import * as au from "../aurelia";
+let MdChip = class MdChip {
+    constructor(element) {
         this.element = element;
-        this.mdClose = false;
+        this.hasClose = false;
     }
-    MdChip.prototype.attached = function () {
-        this.mdClose = getBooleanFromAttributeValue(this.mdClose);
-    };
-    MdChip.prototype.close = function () {
+    closeChip() {
         this.element.parentElement.removeChild(this.element);
-        fireEvent(this.element, "close");
-    };
-    tslib_1.__decorate([
-        bindable,
-        tslib_1.__metadata("design:type", Object)
-    ], MdChip.prototype, "mdClose", void 0);
-    MdChip = tslib_1.__decorate([
-        autoinject,
-        tslib_1.__metadata("design:paramtypes", [Element])
-    ], MdChip);
-    return MdChip;
-}());
+        au.fireEvent(this.element, "close");
+    }
+};
+tslib_1.__decorate([
+    au.ato.bindable.booleanMd,
+    tslib_1.__metadata("design:type", Boolean)
+], MdChip.prototype, "hasClose", void 0);
+MdChip = tslib_1.__decorate([
+    au.autoinject,
+    tslib_1.__metadata("design:paramtypes", [Element])
+], MdChip);
 export { MdChip };
+//# sourceMappingURL=chip.js.map

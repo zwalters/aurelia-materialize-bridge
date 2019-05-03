@@ -1,43 +1,49 @@
 import * as tslib_1 from "tslib";
-import { bindable, customElement, autoinject } from "aurelia-framework";
-import { getLogger } from "aurelia-logging";
-var MdTapTarget = /** @class */ (function () {
-    function MdTapTarget(element) {
+var MdTapTarget_1;
+import * as au from "../aurelia";
+let MdTapTarget = MdTapTarget_1 = class MdTapTarget {
+    constructor(element) {
         this.element = element;
-        this.mdRef = null;
-        this.log = getLogger("md-tap-target");
+        this.log = au.getLogger("md-tap-target");
     }
-    MdTapTarget_1 = MdTapTarget;
-    MdTapTarget.prototype.bind = function () {
-        if (!this.mdRef) {
+    bind() {
+        if (!this.ref) {
             throw new Error("md-tap-target needs a referenced element");
         }
         else {
-            var id = this.mdRef.getAttribute("id");
+            let id = this.ref.getAttribute("id");
             if (!id) {
-                id = "md-tap-target-" + MdTapTarget_1.controlId++;
-                this.mdRef.setAttribute("id", id);
+                id = `md-tap-target-${MdTapTarget_1.controlId++}`;
+                this.ref.setAttribute("id", id);
             }
-            this.element.setAttribute("data-activates", id);
+            this.element.setAttribute("data-target", id);
         }
-    };
-    MdTapTarget.prototype.open = function () {
-        $(this.element).tapTarget("open");
-    };
-    MdTapTarget.prototype.close = function () {
-        $(this.element).tapTarget("close");
-    };
-    MdTapTarget.controlId = 0;
-    tslib_1.__decorate([
-        bindable,
-        tslib_1.__metadata("design:type", HTMLElement)
-    ], MdTapTarget.prototype, "mdRef", void 0);
-    MdTapTarget = MdTapTarget_1 = tslib_1.__decorate([
-        customElement("md-tap-target"),
-        autoinject,
-        tslib_1.__metadata("design:paramtypes", [Element])
-    ], MdTapTarget);
-    return MdTapTarget;
-    var MdTapTarget_1;
-}());
+    }
+    attached() {
+        this.instance = new M.TapTarget(this.element, {
+            onOpen: () => au.fireMaterializeEvent(this.element, "on-open"),
+            onClose: () => au.fireMaterializeEvent(this.element, "on-close")
+        });
+    }
+    detached() {
+        this.instance.destroy();
+    }
+    open() {
+        this.instance.open();
+    }
+    close() {
+        this.instance.close();
+    }
+};
+MdTapTarget.controlId = 0;
+tslib_1.__decorate([
+    au.bindable,
+    tslib_1.__metadata("design:type", HTMLElement)
+], MdTapTarget.prototype, "ref", void 0);
+MdTapTarget = MdTapTarget_1 = tslib_1.__decorate([
+    au.customElement("md-tap-target"),
+    au.autoinject,
+    tslib_1.__metadata("design:paramtypes", [Element])
+], MdTapTarget);
 export { MdTapTarget };
+//# sourceMappingURL=tap-target.js.map

@@ -1,15 +1,12 @@
-import { AttributeManager } from "../common/attributeManager";
 export declare class MdTooltip {
     private element;
     constructor(element: Element);
-    position: string;
-    delay: number | string;
-    html: boolean | string;
-    text: string;
-    attributeManager: AttributeManager;
-    bind(): void;
+    position: "top" | "right" | "bottom" | "left";
+    delay: number;
+    html: string;
+    textChanged(): void;
+    instance: M.Tooltip;
     attached(): void;
     detached(): void;
-    textChanged(): void;
     initTooltip(): void;
 }

@@ -1,57 +1,95 @@
 import * as tslib_1 from "tslib";
-import { autoinject, bindable, bindingMode, children, customElement } from "aurelia-framework";
-import { TaskQueue } from "aurelia-task-queue";
-import { getBooleanFromAttributeValue } from "../common/attributes";
-var MdCarousel = /** @class */ (function () {
-    function MdCarousel(element, taskQueue) {
+import * as au from "../aurelia";
+let MdCarousel = class MdCarousel {
+    constructor(element, taskQueue) {
         this.element = element;
         this.taskQueue = taskQueue;
-        this.mdIndicators = true;
-        this.mdSlider = false;
+        this.indicators = true;
+        this.fullWidth = false;
         this.items = [];
     }
-    MdCarousel.prototype.attached = function () {
-        if (getBooleanFromAttributeValue(this.mdSlider)) {
+    itemsChanged() {
+        this.refresh();
+    }
+    attached() {
+        if (this.fullWidth) {
             this.element.classList.add("carousel-slider");
         }
         this.refresh();
-    };
-    MdCarousel.prototype.detached = function () {
-        $(this.element).carousel("destroy");
-    };
-    MdCarousel.prototype.itemsChanged = function (newValue) {
-        this.refresh();
-    };
-    MdCarousel.prototype.refresh = function () {
-        var _this = this;
-        if (this.items.length > 0) {
-            var options_1 = {
-                full_width: getBooleanFromAttributeValue(this.mdSlider),
-                fullWidth: getBooleanFromAttributeValue(this.mdSlider),
-                indicators: this.mdIndicators
-            };
-            this.taskQueue.queueTask(function () {
-                $(_this.element).carousel(options_1);
-            });
+    }
+    detached() {
+        this.instance.destroy();
+    }
+    refresh() {
+        if (!this.items.length) {
+            return;
         }
-    };
-    tslib_1.__decorate([
-        bindable,
-        tslib_1.__metadata("design:type", Object)
-    ], MdCarousel.prototype, "mdIndicators", void 0);
-    tslib_1.__decorate([
-        bindable({ defaultBindingMode: bindingMode.oneTime }),
-        tslib_1.__metadata("design:type", Object)
-    ], MdCarousel.prototype, "mdSlider", void 0);
-    tslib_1.__decorate([
-        children("md-carousel-item"),
-        tslib_1.__metadata("design:type", Array)
-    ], MdCarousel.prototype, "items", void 0);
-    MdCarousel = tslib_1.__decorate([
-        customElement("md-carousel"),
-        autoinject,
-        tslib_1.__metadata("design:paramtypes", [Element, TaskQueue])
-    ], MdCarousel);
-    return MdCarousel;
-}());
+        const options = {
+            fullWidth: this.fullWidth,
+            indicators: this.indicators,
+            dist: this.dist,
+            duration: this.duration,
+            noWrap: this.noWrap,
+            numVisible: this.numVisible,
+            padding: this.padding,
+            shift: this.shift,
+            onCycleTo: (current, dragged) => au.fireMaterializeEvent(this.element, "cycle-to", { current, dragged })
+        };
+        au.cleanOptions(options);
+        this.taskQueue.queueTask(() => {
+            this.instance = new M.Carousel(this.element, options);
+        });
+    }
+    next(n) {
+        this.instance.next(n);
+    }
+    prev(n) {
+        this.instance.prev(n);
+    }
+    set(n) {
+        this.instance.set(n);
+    }
+};
+tslib_1.__decorate([
+    au.ato.bindable.booleanMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Boolean)
+], MdCarousel.prototype, "indicators", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.booleanMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Boolean)
+], MdCarousel.prototype, "fullWidth", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.numberMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Number)
+], MdCarousel.prototype, "duration", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.numberMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Number)
+], MdCarousel.prototype, "dist", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.numberMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Number)
+], MdCarousel.prototype, "shift", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.numberMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Number)
+], MdCarousel.prototype, "padding", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.numberMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Number)
+], MdCarousel.prototype, "numVisible", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.booleanMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Boolean)
+], MdCarousel.prototype, "noWrap", void 0);
+tslib_1.__decorate([
+    au.children("md-carousel-item"),
+    tslib_1.__metadata("design:type", Array)
+], MdCarousel.prototype, "items", void 0);
+MdCarousel = tslib_1.__decorate([
+    au.customElement("md-carousel"),
+    au.autoinject,
+    tslib_1.__metadata("design:paramtypes", [Element, au.TaskQueue])
+], MdCarousel);
 export { MdCarousel };
+//# sourceMappingURL=carousel.js.map

@@ -1,57 +1,56 @@
 import * as tslib_1 from "tslib";
-import { bindable, customElement, bindingMode, autoinject } from "aurelia-framework";
-var MdProgress = /** @class */ (function () {
-    function MdProgress(element) {
+import * as au from "../aurelia";
+let MdProgress = class MdProgress {
+    constructor(element) {
         this.element = element;
-        this.mdColor = null;
-        this.mdPixelSize = null;
-        this.mdSize = "big";
-        this.mdType = "linear";
-        this.mdValue = null;
+        this.color = null;
+        this.pixelSize = null;
+        this.size = "big";
+        this.type = "linear";
+        this.value = null;
     }
-    MdProgress.prototype.mdPixelSizeChanged = function (newValue) {
+    pixelSizeChanged(newValue) {
         if (this.wrapper) {
-            newValue = (newValue === null || newValue === "" || typeof newValue === "number" && isNaN(newValue)) ? "" : newValue + "px";
-            this.wrapper.style.height = newValue;
-            this.wrapper.style.width = newValue;
+            this.wrapper.style.height = `${newValue}px`;
+            this.wrapper.style.width = `${newValue}px`;
         }
-    };
-    MdProgress.prototype.bind = function () {
+    }
+    sizeChanged(newValue) {
+        this.pixelSize = null;
+    }
+    bind() {
         // DO NOT REMOVE!!!
         // This disables property changed callbacks for any bindable properties during initialization
         // Prevents mdPixelSize getting cleared by the mdSizeChanged event during binding
-    };
-    MdProgress.prototype.attached = function () {
-        this.mdPixelSizeChanged(this.mdPixelSize);
-    };
-    MdProgress.prototype.mdSizeChanged = function (newValue) {
-        this.mdPixelSize = null;
-    };
-    tslib_1.__decorate([
-        bindable,
-        tslib_1.__metadata("design:type", String)
-    ], MdProgress.prototype, "mdColor", void 0);
-    tslib_1.__decorate([
-        bindable({ defaultBindingMode: bindingMode.twoWay }),
-        tslib_1.__metadata("design:type", Object)
-    ], MdProgress.prototype, "mdPixelSize", void 0);
-    tslib_1.__decorate([
-        bindable,
-        tslib_1.__metadata("design:type", String)
-    ], MdProgress.prototype, "mdSize", void 0);
-    tslib_1.__decorate([
-        bindable({ defaultBindingMode: bindingMode.oneTime }),
-        tslib_1.__metadata("design:type", String)
-    ], MdProgress.prototype, "mdType", void 0);
-    tslib_1.__decorate([
-        bindable({ defaultBindingMode: bindingMode.twoWay }),
-        tslib_1.__metadata("design:type", Number)
-    ], MdProgress.prototype, "mdValue", void 0);
-    MdProgress = tslib_1.__decorate([
-        customElement("md-progress"),
-        autoinject,
-        tslib_1.__metadata("design:paramtypes", [Element])
-    ], MdProgress);
-    return MdProgress;
-}());
+    }
+    attached() {
+        this.pixelSizeChanged(this.pixelSize);
+    }
+};
+tslib_1.__decorate([
+    au.ato.bindable.stringMd,
+    tslib_1.__metadata("design:type", String)
+], MdProgress.prototype, "color", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.numberMd({ defaultBindingMode: au.bindingMode.twoWay }),
+    tslib_1.__metadata("design:type", Number)
+], MdProgress.prototype, "pixelSize", void 0);
+tslib_1.__decorate([
+    au.bindable,
+    tslib_1.__metadata("design:type", String)
+], MdProgress.prototype, "size", void 0);
+tslib_1.__decorate([
+    au.bindable({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", String)
+], MdProgress.prototype, "type", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.numberMd({ defaultBindingMode: au.bindingMode.twoWay }),
+    tslib_1.__metadata("design:type", Number)
+], MdProgress.prototype, "value", void 0);
+MdProgress = tslib_1.__decorate([
+    au.customElement("md-progress"),
+    au.autoinject,
+    tslib_1.__metadata("design:paramtypes", [Element])
+], MdProgress);
 export { MdProgress };
+//# sourceMappingURL=progress.js.map

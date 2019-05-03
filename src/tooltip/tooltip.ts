@@ -1,54 +1,40 @@
-import { bindable, customAttribute, autoinject } from "aurelia-framework";
-import { AttributeManager } from "../common/attributeManager";
-import { getBooleanFromAttributeValue } from "../common/attributes";
+import * as au from "../aurelia";
 
-@customAttribute("md-tooltip")
-@autoinject
+@au.customAttribute("md-tooltip")
+@au.autoinject
 export class MdTooltip {
-	constructor(private element: Element) {
-		this.attributeManager = new AttributeManager(this.element);
+	constructor(private element: Element) { }
+
+	@au.bindable
+	position: "top" | "right" | "bottom" | "left" = "bottom";
+
+	@au.bindable
+	delay: number = 50;
+
+	@au.bindable
+	html: string = "";
+	textChanged() {
+		this.initTooltip();
 	}
 
-	@bindable
-	position: string = "bottom";
-
-	@bindable
-	delay: number | string = 50;
-
-	@bindable
-	html: boolean | string = false;
-
-	@bindable
-	text: string = "";
-
-	attributeManager: AttributeManager;
-
-	bind() {
-		this.html = getBooleanFromAttributeValue(this.html);
-	}
+	instance: M.Tooltip;
 
 	attached() {
-		this.attributeManager.addClasses("tooltipped");
-		this.attributeManager.addAttributes({ "data-position": this.position, "data-tooltip": this.text });
 		this.initTooltip();
 	}
 
 	detached() {
-		$(this.element).tooltip("remove");
-		this.attributeManager.removeClasses("tooltipped");
-		this.attributeManager.removeAttributes(["data-position", "data-tooltip"]);
-	}
-
-	textChanged() {
-		this.attributeManager.addAttributes({ "data-tooltip": this.text });
-		this.initTooltip();
+		if (this.instance) {
+			this.instance.destroy();
+		}
 	}
 
 	initTooltip() {
-		$(this.element).tooltip("remove");
-		$(this.element).tooltip({
-			delay: parseInt(this.delay.toString(), 10),
-			html: this.html
-		});
+		if (this.html) {
+			this.instance = new M.Tooltip(this.element, { exitDelay: this.delay, html: this.html, position: this.position });
+		}
+		else if (this.instance) {
+			this.instance.destroy();
+		}
 	}
 }

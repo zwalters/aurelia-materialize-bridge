@@ -1,16 +1,15 @@
-var MdToastService = /** @class */ (function () {
-    function MdToastService() {
+import * as au from "../aurelia";
+export class MdToastService {
+    removeAll() {
+        M.Toast.dismissAll();
     }
-    MdToastService.prototype.removeAll = function () {
-        Materialize.Toast.removeAll();
-    };
-    MdToastService.prototype.show = function (message, displayLength, className) {
-        return new Promise(function (resolve, reject) {
-            var toastInstance = Materialize.toast(message, displayLength, className, function () {
-                resolve(toastInstance);
-            });
+    show(html, displayLength, className, activationPercent, inDuration, outDuration) {
+        let options = { html, displayLength, classes: className, activationPercent, inDuration, outDuration };
+        au.cleanOptions(options);
+        return new Promise(resolve => {
+            options.completeCallback = () => resolve(instance);
+            let instance = new M.Toast(options);
         });
-    };
-    return MdToastService;
-}());
-export { MdToastService };
+    }
+}
+//# sourceMappingURL=toastService.js.map

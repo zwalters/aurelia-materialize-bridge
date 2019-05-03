@@ -1,27 +1,50 @@
 import * as tslib_1 from "tslib";
-import { bindable, customElement, autoinject } from "aurelia-framework";
-import { getBooleanFromAttributeValue } from "../common/attributes";
-var MdFab = /** @class */ (function () {
-    function MdFab() {
-        this.mdFixed = false;
-        this.mdLarge = false;
+import * as au from "../aurelia";
+let MdFab = class MdFab {
+    constructor(element, taskQueue) {
+        this.element = element;
+        this.taskQueue = taskQueue;
     }
-    MdFab.prototype.attached = function () {
-        this.mdFixed = getBooleanFromAttributeValue(this.mdFixed);
-        this.mdLarge = getBooleanFromAttributeValue(this.mdLarge);
-    };
-    tslib_1.__decorate([
-        bindable,
-        tslib_1.__metadata("design:type", Object)
-    ], MdFab.prototype, "mdFixed", void 0);
-    tslib_1.__decorate([
-        bindable,
-        tslib_1.__metadata("design:type", Object)
-    ], MdFab.prototype, "mdLarge", void 0);
-    MdFab = tslib_1.__decorate([
-        customElement("md-fab"),
-        autoinject
-    ], MdFab);
-    return MdFab;
-}());
+    attached() {
+        this.element.classList.add("fixed-action-btn");
+        if (this.toolbarEnabled) {
+            this.element.classList.add("toolbar");
+        }
+        let options = {
+            direction: this.direction,
+            hoverEnabled: this.hoverEnabled,
+            toolbarEnabled: this.toolbarEnabled
+        };
+        au.cleanOptions(options);
+        this.taskQueue.queueTask(() => this.instance = new M.FloatingActionButton(this.element, options));
+    }
+    detached() {
+        this.instance.destroy();
+        this.element.classList.remove("fixed-action-btn");
+        this.element.classList.remove("toolbar");
+    }
+    open() {
+        this.instance.open();
+    }
+    close() {
+        this.instance.close();
+    }
+};
+tslib_1.__decorate([
+    au.ato.bindable.stringMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", String)
+], MdFab.prototype, "direction", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.booleanMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Boolean)
+], MdFab.prototype, "hoverEnabled", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.booleanMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Boolean)
+], MdFab.prototype, "toolbarEnabled", void 0);
+MdFab = tslib_1.__decorate([
+    au.customElement("md-fab"),
+    tslib_1.__metadata("design:paramtypes", [Element, au.TaskQueue])
+], MdFab);
 export { MdFab };
+//# sourceMappingURL=fab.js.map

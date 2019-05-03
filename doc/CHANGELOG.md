@@ -2,13 +2,509 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-<a name="0.34.2"></a>
-## [0.34.2](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v0.34.1...v0.34.2) (2018-05-04)
+<a name="1.3.0"></a>
+# [1.3.0](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.11...v1.3.0) (2019-04-23)
 
 
 ### Bug Fixes
 
-* **input:** clean up validation messages on detached ([a80cfab](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/a80cfab))
+* **select:** check for undefined instance ([493bddd](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/493bddd))
+
+
+### Features
+
+* **datepicker:** add slot support for datepicker ([#548](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/548)) ([72c0938](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/72c0938))
+
+
+
+<a name="1.2.11"></a>
+## [1.2.11](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.10...v1.2.11) (2019-04-17)
+
+
+### Bug Fixes
+
+* **datepicker:** check for not initialised instance ([fb3d350](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/fb3d350)), closes [#545](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/545)
+* **tabs:** do not init on an empty tabs list ([319446b](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/319446b)), closes [#547](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/547)
+* **toastService:** rename parameter ([8649988](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/8649988)), closes [#546](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/546)
+* **tooltip:** rename attribute ([76c6b51](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/76c6b51)), closes [#546](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/546)
+
+
+
+<a name="1.2.10"></a>
+## [1.2.10](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.9...v1.2.10) (2019-04-09)
+
+
+### Bug Fixes
+
+* **select:** restore validation status on the wrapper ([b7bb532](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/b7bb532))
+
+
+
+<a name="1.2.9"></a>
+## [1.2.9](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.8...v1.2.9) (2019-03-18)
+
+
+### Bug Fixes
+
+* **package.json:** build es2015 dist for es6 ([095d932](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/095d932))
+
+
+
+<a name="1.2.8"></a>
+## [1.2.8](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.7...v1.2.8) (2019-03-03)
+
+
+### Bug Fixes
+
+* **timepicker:** add missing events ([03b9d9e](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/03b9d9e))
+
+
+
+<a name="1.2.7"></a>
+## [1.2.7](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.6...v1.2.7) (2019-03-03)
+
+
+### Bug Fixes
+
+* **config-builder:** make lint happy ([43dd34b](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/43dd34b))
+* **timepicker:** use correct control id ([ab46c67](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/ab46c67))
+
+
+
+<a name="1.2.6"></a>
+## [1.2.6](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.5...v1.2.6) (2019-02-11)
+
+
+### Bug Fixes
+
+* **lookup:** check for a null input reference ([8e1c9e6](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/8e1c9e6))
+
+
+
+<a name="1.2.5"></a>
+## [1.2.5](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.4...v1.2.5) (2019-01-10)
+
+
+### Bug Fixes
+
+* **tooltip:** destroy the instance only if it was created ([293482c](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/293482c))
+
+
+
+<a name="1.2.4"></a>
+## [1.2.4](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.3...v1.2.4) (2018-12-11)
+
+
+### Bug Fixes
+
+* **select:** split command for IE compatibility ([ef1ad8e](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/ef1ad8e))
+
+
+
+<a name="1.2.3"></a>
+## [1.2.3](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.2...v1.2.3) (2018-12-11)
+
+
+### Bug Fixes
+
+* **select:** Add a class for discoverability ([8128a59](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/8128a59))
+
+
+
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.1...v1.2.2) (2018-12-07)
+
+
+### Bug Fixes
+
+* **polyfills:** check for undefined objects ([a851e95](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/a851e95))
+
+
+
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.2.0...v1.2.1) (2018-11-02)
+
+
+### Bug Fixes
+
+* **validation-container:** fix validation message font size ([f38c278](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/f38c278))
+
+
+
+<a name="1.2.0"></a>
+# [1.2.0](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.10...v1.2.0) (2018-11-02)
+
+
+### Bug Fixes
+
+* **package.json:** clean up ([31eb959](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/31eb959))
+* **package.json:** clean up ([194cb9b](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/194cb9b))
+* **package.json:** clean up ([ef81971](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/ef81971))
+* **package.json:** clean up ([9642795](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/9642795))
+* **package.json:** clean up ([36083d7](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/36083d7))
+* **package.json:** clean up ([5150fdb](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/5150fdb))
+
+
+### Features
+
+* **validation-container:** add validation-container element ([e03c919](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/e03c919))
+
+
+
+<a name="1.1.10"></a>
+## [1.1.10](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.9...v1.1.10) (2018-09-05)
+
+
+### Bug Fixes
+
+* **select:** reinitialize select in a queue ([a5c25fc](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/a5c25fc)), closes [#528](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/528)
+
+
+
+<a name="1.1.9"></a>
+## [1.1.9](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.8...v1.1.9) (2018-09-05)
+
+
+
+<a name="1.1.8"></a>
+## [1.1.8](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.7...v1.1.8) (2018-09-04)
+
+
+
+<a name="1.1.7"></a>
+## [1.1.7](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.6...v1.1.7) (2018-09-04)
+
+
+### Bug Fixes
+
+* **colors:** do not mess with helper-text positions ([bf22e75](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/bf22e75))
+* **colors:** set primary shades on attached ([a2ff37c](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/a2ff37c))
+
+
+
+<a name="1.1.6"></a>
+## [1.1.6](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.5...v1.1.6) (2018-08-30)
+
+
+### Bug Fixes
+
+* **colors:** add padStart polyfill for IE11 ([6eb112e](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/6eb112e))
+
+
+
+<a name="1.1.5"></a>
+## [1.1.5](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.4...v1.1.5) (2018-08-28)
+
+
+### Bug Fixes
+
+* **datepicker:** listen for change events to update the value ([35ce944](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/35ce944)), closes [#526](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/526)
+* **switch:** observe disabled changes ([8e0447d](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/8e0447d))
+
+
+
+<a name="1.1.4"></a>
+## [1.1.4](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.3...v1.1.4) (2018-08-28)
+
+
+### Bug Fixes
+
+* **button:** fix btn classes usage and rename accent to secondary ([7a60b9f](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/7a60b9f))
+* **switch:** bind to correct fields ([969e5e9](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/969e5e9)), closes [#525](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/525)
+
+
+
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.2...v1.1.3) (2018-08-27)
+
+
+### Bug Fixes
+
+* **colors:** add importance to theme classes ([0ecd1c9](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/0ecd1c9))
+
+
+
+<a name="1.1.2"></a>
+## [1.1.2](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.1...v1.1.2) (2018-08-27)
+
+
+### Bug Fixes
+
+* **breadcrumbs:** remove redundant class ([567baee](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/567baee))
+* **md-colors:** add back theme color classes ([2f871ab](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/2f871ab))
+* **navbar:** remove redundant class ([dd4af4c](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/dd4af4c))
+
+
+
+<a name="1.1.1"></a>
+## [1.1.1](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.1.0...v1.1.1) (2018-08-24)
+
+
+
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0...v1.1.0) (2018-08-24)
+
+
+### Bug Fixes
+
+* **fab:** set accent colour only when a selector present ([76b2109](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/76b2109))
+
+
+### Features
+
+* **colors:** build md-colors styles from Materialize SASS files ([71d8ae5](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/71d8ae5))
+
+
+
+<a name="1.0.0"></a>
+# [1.0.0](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.19...v1.0.0) (2018-08-21)
+
+
+### Bug Fixes
+
+* **all:** enforce module loading order for Aurelia CLI with requirejs ([7235cd1](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/7235cd1))
+* **all:** re-export controllers correctly ([74d75d1](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/74d75d1))
+* **tooltip:** destroy widget when text is not set ([5b60dc3](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/5b60dc3))
+
+
+### Features
+
+* **auto-waves:** automatically add waves on all buttons ([2c8479b](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/2c8479b)), closes [#137](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/137)
+
+
+
+<a name="1.0.0-alpha.19"></a>
+# [1.0.0-alpha.19](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.18...v1.0.0-alpha.19) (2018-08-12)
+
+
+### Bug Fixes
+
+* **pagination:** don't let start turn negative ([8c07b88](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/8c07b88))
+* **tap-target:** add append polyfill for ie11 ([a9373d4](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/a9373d4))
+
+
+
+<a name="1.0.0-alpha.18"></a>
+# [1.0.0-alpha.18](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.17...v1.0.0-alpha.18) (2018-08-02)
+
+
+### Bug Fixes
+
+* **datepicker:** fix focused month and year selector border ([cb202ab](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/cb202ab))
+* **tap-target:** set background colour to primary ([0a59ed0](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/0a59ed0))
+
+
+
+<a name="1.0.0-alpha.17"></a>
+# [1.0.0-alpha.17](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.16...v1.0.0-alpha.17) (2018-07-21)
+
+
+### Bug Fixes
+
+* **package:** add jspm configuration section ([77219b2](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/77219b2))
+* **package:** remove jspm configuration section ([cdb3f21](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/cdb3f21))
+* **packages:** add materialize-css peer dependency ([da1687e](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/da1687e))
+* **tabs:** remove temporary patch ([eb6f9d2](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/eb6f9d2))
+
+
+
+<a name="1.0.0-alpha.16"></a>
+# [1.0.0-alpha.16](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.15...v1.0.0-alpha.16) (2018-07-09)
+
+
+### Bug Fixes
+
+* **packages:** switch to peer dependencies and make them less restrictive ([d553a2f](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/d553a2f))
+
+
+
+<a name="1.0.0-alpha.15"></a>
+# [1.0.0-alpha.15](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.14...v1.0.0-alpha.15) (2018-07-06)
+
+
+### Bug Fixes
+
+* **dependencies:** clean up package.json ([fd256b6](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/fd256b6))
+
+
+
+<a name="1.0.0-alpha.14"></a>
+# [1.0.0-alpha.14](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.13...v1.0.0-alpha.14) (2018-07-06)
+
+
+### Bug Fixes
+
+* **all:** polyfill remove for IE11 ([f6d4716](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/f6d4716)), closes [#517](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/517)
+
+
+
+<a name="1.0.0-alpha.13"></a>
+# [1.0.0-alpha.13](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.12...v1.0.0-alpha.13) (2018-06-04)
+
+
+### Bug Fixes
+
+* **datepicker:** do not display border on selects ([2aa8ab8](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/2aa8ab8))
+
+
+### Features
+
+* **input:** [#512](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/512) added autocomplete attribute ([f8b0b15](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/f8b0b15))
+
+
+
+<a name="1.0.0-alpha.12"></a>
+# [1.0.0-alpha.12](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.11...v1.0.0-alpha.12) (2018-05-24)
+
+
+### Bug Fixes
+
+* **datepicker:** do not display border on selects ([9a7969e](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/9a7969e))
+* **modal:** toggle fixed footer class ([ff9db75](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/ff9db75))
+* **wait-cursor:** detached differently for buttons ([97b1fb1](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/97b1fb1))
+
+
+### Features
+
+* **lookup:** add preload option ([d1088af](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/d1088af))
+
+
+
+<a name="1.0.0-alpha.11"></a>
+# [1.0.0-alpha.11](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.10...v1.0.0-alpha.11) (2018-05-15)
+
+
+### Bug Fixes
+
+* **lookup:** do not set value or filter if values are the same ([a5cfe09](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/a5cfe09))
+* **wait-cursor:** clean up ([371800e](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/371800e))
+* **wait-cursor:** remove element on detached ([99bb6a5](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/99bb6a5))
+
+
+
+<a name="1.0.0-alpha.10"></a>
+# [1.0.0-alpha.10](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.9...v1.0.0-alpha.10) (2018-05-15)
+
+
+### Bug Fixes
+
+* **dropdown:** remove dropdown remains on detached ([f5786d8](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/f5786d8))
+* **lookup:** display error message ([6ee33ca](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/6ee33ca))
+* **lookup:** remove placeholder binding and set label ref ([8828910](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/8828910))
+* **sidenav:** set required reference attribute ([933a654](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/933a654))
+
+
+### Features
+
+* **wait-cursor:** add wait-cursor attribute ([5fb103c](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/5fb103c))
+
+
+
+<a name="1.0.0-alpha.9"></a>
+# [1.0.0-alpha.9](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.8...v1.0.0-alpha.9) (2018-05-15)
+
+
+### Bug Fixes
+
+* **lookup:** finaly settle on this implementation ([0f50db3](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/0f50db3))
+
+
+### Features
+
+* **lookup:** rework bindings ([d5d269e](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/d5d269e))
+
+
+
+<a name="1.0.0-alpha.8"></a>
+# [1.0.0-alpha.8](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.7...v1.0.0-alpha.8) (2018-05-14)
+
+
+### Bug Fixes
+
+* **lookup:** remove filter binding in favour of an event ([7ad8504](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/7ad8504))
+
+
+
+<a name="1.0.0-alpha.7"></a>
+# [1.0.0-alpha.7](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.6...v1.0.0-alpha.7) (2018-05-14)
+
+
+### Bug Fixes
+
+* **collection:** use updated attribute names ([b629d2f](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/b629d2f))
+* **datepicker:** colors ([3669f34](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/3669f34)), closes [#513](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/issues/513)
+* **lookup:** move colors to md-colors element ([e23c7a4](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/e23c7a4))
+* **timepicker:** add colors ([6a43b82](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/6a43b82))
+
+
+### Features
+
+* **colors:** add colors service ([08533a5](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/08533a5))
+* **lookup:** add experimental lookup element ([f03e289](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/f03e289))
+
+
+
+<a name="1.0.0-alpha.6"></a>
+# [1.0.0-alpha.6](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.5...v1.0.0-alpha.6) (2018-05-12)
+
+
+### Bug Fixes
+
+* **select:** clean up select styles ([905da57](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/905da57))
+* **select:** fix multiple and object use cases ([cf99151](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/cf99151))
+
+
+
+<a name="1.0.0-alpha.5"></a>
+# [1.0.0-alpha.5](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.4...v1.0.0-alpha.5) (2018-05-11)
+
+
+### Bug Fixes
+
+* **colors:** set defaults ([7400e99](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/7400e99))
+* **select:** add validation classes to select wrapper ([6e8c5de](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/6e8c5de))
+
+
+
+<a name="1.0.0-alpha.4"></a>
+# [1.0.0-alpha.4](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.3...v1.0.0-alpha.4) (2018-05-11)
+
+
+### Bug Fixes
+
+* **tabs:** fix focused tab header color ([34c55f9](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/34c55f9))
+* **validation:** remove absolute positioning ([07ff219](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/07ff219))
+
+
+
+<a name="1.0.0-alpha.3"></a>
+# [1.0.0-alpha.3](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/1.0.0-alpha.2...1.0.0-alpha.3) (2018-05-11)
+
+
+### Bug Fixes
+
+* **button:** clean up ([44a313a](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/44a313a))
+* **card:** display card title ([cf657ab](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/cf657ab))
+* **datepicker:** do not update the value if the widget didn't change it ([f23652c](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/f23652c))
+* **dropdown:** accept query selector for the container ([e86c532](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/e86c532))
+* **select:** enable option observer by default ([90ee0e5](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/90ee0e5))
+* **validation:** fix helper-text occupying too much space ([c266953](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/c266953))
+
+
+### Features
+
+* **typings:** add useful declarations ([d01dfb8](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/d01dfb8))
+
+
+
+<a name="1.0.0-alpha.2"></a>
+# [1.0.0-alpha.2](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/compare/v1.0.0-alpha.1...v1.0.0-alpha.2) (2018-05-09)
+
+
+### Bug Fixes
+
+* **declarations:** Remove redundant materialize declarations ([ea90bcd](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/ea90bcd))
+* **validation:** clean up validation messages and classes on detached ([1ec7124](https://github.com/aurelia-ui-toolkits/aurelia-materialize-bridge/commit/1ec7124))
 
 
 

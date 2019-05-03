@@ -1,83 +1,75 @@
 import * as tslib_1 from "tslib";
-import { autoinject, bindable, bindingMode, customAttribute } from "aurelia-framework";
-import { getLogger } from "aurelia-logging";
-import { fireEvent } from "../common/events";
-var MdChips = /** @class */ (function () {
-    function MdChips(element) {
+import * as au from "../aurelia";
+let MdChips = class MdChips {
+    constructor(element, taskQueue) {
         this.element = element;
+        this.taskQueue = taskQueue;
         this.autocompleteData = {};
         this.data = [];
-        this.placeholder = "";
-        this.secondaryPlaceholder = "";
-        this.log = getLogger("md-chips");
-        this.onChipAdd = this.onChipAdd.bind(this);
-        this.onChipDelete = this.onChipDelete.bind(this);
-        this.onChipSelect = this.onChipSelect.bind(this);
+        this.log = au.getLogger("md-chips");
     }
-    MdChips.prototype.dataChanged = function (newValue, oldValue) {
+    dataChanged(newValue, oldValue) {
         this.refresh();
         // I know this is a bit naive..
         if (newValue.length > oldValue.length) {
-            var chip = newValue.find(function (i) { return !oldValue.includes(i); });
-            fireEvent(this.element, "change", { source: "dataChanged", operation: "add", target: chip, data: newValue });
+            const chip = newValue.find(i => !oldValue.includes(i));
+            au.fireEvent(this.element, "change", { source: "dataChanged", operation: "add", target: chip, data: newValue });
         }
         if (newValue.length < oldValue.length) {
-            var chip = oldValue.find(function (i) { return !newValue.includes(i); });
-            fireEvent(this.element, "change", { source: "dataChanged", operation: "delete", target: chip, data: newValue });
+            const chip = oldValue.find(i => !newValue.includes(i));
+            au.fireEvent(this.element, "change", { source: "dataChanged", operation: "delete", target: chip, data: newValue });
         }
-    };
-    MdChips.prototype.attached = function () {
+    }
+    bind() {
+        // suppress initial change handler calls
+    }
+    attached() {
         this.refresh();
-        $(this.element).on("chip.add", this.onChipAdd);
-        $(this.element).on("chip.delete", this.onChipDelete);
-        $(this.element).on("chip.select", this.onChipSelect);
-    };
-    MdChips.prototype.detached = function () {
-        $(this.element).off("chip.add", this.onChipAdd);
-        $(this.element).off("chip.delete", this.onChipDelete);
-        $(this.element).off("chip.select", this.onChipSelect);
-    };
-    MdChips.prototype.refresh = function () {
-        var options = {
-            autocompleteOptions: {
-                data: this.autocompleteData
-            },
+    }
+    detached() {
+        this.instance.destroy();
+    }
+    refresh() {
+        const options = {
             data: this.data,
             placeholder: this.placeholder,
-            secondaryPlaceholder: this.secondaryPlaceholder
+            limit: this.limit,
+            secondaryPlaceholder: this.secondaryPlaceholder,
+            onChipAdd: () => this.data = this.instance.chipsData,
+            onChipDelete: () => this.data = this.instance.chipsData,
+            onChipSelect: (e, chip) => au.fireEvent(this.element, "selected", { target: chip })
         };
-        $(this.element).material_chip(options);
-    };
-    MdChips.prototype.onChipAdd = function (e, chip) {
-        this.data = $(this.element).material_chip("data");
-    };
-    MdChips.prototype.onChipDelete = function (e, chip) {
-        this.data = $(this.element).material_chip("data");
-    };
-    MdChips.prototype.onChipSelect = function (e, chip) {
-        fireEvent(this.element, "selected", { target: chip });
-    };
-    tslib_1.__decorate([
-        bindable,
-        tslib_1.__metadata("design:type", Object)
-    ], MdChips.prototype, "autocompleteData", void 0);
-    tslib_1.__decorate([
-        bindable({ defaultBindingMode: bindingMode.twoWay }),
-        tslib_1.__metadata("design:type", Array)
-    ], MdChips.prototype, "data", void 0);
-    tslib_1.__decorate([
-        bindable,
-        tslib_1.__metadata("design:type", String)
-    ], MdChips.prototype, "placeholder", void 0);
-    tslib_1.__decorate([
-        bindable,
-        tslib_1.__metadata("design:type", String)
-    ], MdChips.prototype, "secondaryPlaceholder", void 0);
-    MdChips = tslib_1.__decorate([
-        customAttribute("md-chips"),
-        autoinject,
-        tslib_1.__metadata("design:paramtypes", [Element])
-    ], MdChips);
-    return MdChips;
-}());
+        if (this.autocompleteData) {
+            options.autocompleteOptions = { data: this.autocompleteData };
+        }
+        au.cleanOptions(options);
+        this.instance = new M.Chips(this.element, options);
+    }
+};
+tslib_1.__decorate([
+    au.bindable,
+    tslib_1.__metadata("design:type", Object)
+], MdChips.prototype, "autocompleteData", void 0);
+tslib_1.__decorate([
+    au.bindable({ defaultBindingMode: au.bindingMode.twoWay }),
+    tslib_1.__metadata("design:type", Array)
+], MdChips.prototype, "data", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.stringMd,
+    tslib_1.__metadata("design:type", String)
+], MdChips.prototype, "placeholder", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.stringMd,
+    tslib_1.__metadata("design:type", String)
+], MdChips.prototype, "secondaryPlaceholder", void 0);
+tslib_1.__decorate([
+    au.ato.bindable.numberMd({ defaultBindingMode: au.bindingMode.oneTime }),
+    tslib_1.__metadata("design:type", Number)
+], MdChips.prototype, "limit", void 0);
+MdChips = tslib_1.__decorate([
+    au.customAttribute("md-chips"),
+    au.autoinject,
+    tslib_1.__metadata("design:paramtypes", [Element, au.TaskQueue])
+], MdChips);
 export { MdChips };
+//# sourceMappingURL=chips.js.map

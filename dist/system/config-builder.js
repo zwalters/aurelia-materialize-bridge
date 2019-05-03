@@ -1,23 +1,29 @@
-System.register(["aurelia-pal"], function (exports_1, context_1) {
+System.register(["tslib", "aurelia-pal", "./aurelia"], function (exports_1, context_1) {
     "use strict";
+    var tslib_1, aurelia_pal_1, aurelia_1, ConfigBuilder;
     var __moduleName = context_1 && context_1.id;
-    var aurelia_pal_1, ConfigBuilder;
     return {
         setters: [
+            function (tslib_1_1) {
+                tslib_1 = tslib_1_1;
+            },
             function (aurelia_pal_1_1) {
                 aurelia_pal_1 = aurelia_pal_1_1;
+            },
+            function (aurelia_1_1) {
+                aurelia_1 = aurelia_1_1;
             }
         ],
         execute: function () {
-            /**
-             * Plugin configuration builder
-             */
             ConfigBuilder = /** @class */ (function () {
+                /**
+                 * Plugin configuration builder
+                 */
                 function ConfigBuilder() {
                     this.globalResources = [];
                     this.noWavesAttach = false;
+                    this.autoButtonWaves = false;
                     this.useGlobalResources = true;
-                    this.useScrollfirePatch = false;
                 }
                 ConfigBuilder.prototype.useAll = function () {
                     return this
@@ -40,6 +46,7 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                         .useFile()
                         .useFooter()
                         .useInput()
+                        .useLookup()
                         .useModal()
                         .useNavbar()
                         .usePagination()
@@ -48,7 +55,6 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                         .usePushpin()
                         .useRadio()
                         .useRange()
-                        .useScrollfire()
                         .useScrollSpy()
                         .useSelect()
                         .useSidenav()
@@ -58,8 +64,10 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                         .useTapTarget()
                         .useTimePicker()
                         .useTooltip()
-                        .useTransitions()
+                        .useWaitCursor()
                         .useWaves()
+                        .useAutoButtonWaves(true)
+                        .useValidationContainer()
                         .useWell();
                 };
                 ConfigBuilder.prototype.useAutoComplete = function () {
@@ -108,7 +116,7 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                  * Use my control
                  */
                 ConfigBuilder.prototype.useClickCounter = function () {
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./click-counter"));
+                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./click-counter/click-counter"));
                     return this;
                 };
                 ConfigBuilder.prototype.useCollapsible = function () {
@@ -124,6 +132,14 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                 };
                 ConfigBuilder.prototype.useColors = function () {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./colors/md-colors"));
+                    return this;
+                };
+                ConfigBuilder.prototype.useLegacyColors = function () {
+                    var i = this.globalResources.indexOf("./colors/md-colors");
+                    if (i >= 0) {
+                        this.globalResources.splice(i, 1);
+                    }
+                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./colors/md-colors-legacy"));
                     return this;
                 };
                 ConfigBuilder.prototype.useDatePicker = function () {
@@ -152,9 +168,12 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./input/input-prefix"));
                     return this;
                 };
+                ConfigBuilder.prototype.useLookup = function () {
+                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./lookup/lookup"));
+                    return this;
+                };
                 ConfigBuilder.prototype.useModal = function () {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./modal/modal"));
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./modal/modal-trigger"));
                     return this;
                 };
                 ConfigBuilder.prototype.useNavbar = function () {
@@ -185,11 +204,6 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./range/range"));
                     return this;
                 };
-                ConfigBuilder.prototype.useScrollfire = function () {
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./scrollfire/scrollfire"));
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./scrollfire/scrollfire-target"));
-                    return this;
-                };
                 ConfigBuilder.prototype.useScrollSpy = function () {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./scrollspy/scrollspy"));
                     return this;
@@ -212,9 +226,6 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./switch/switch"));
                     return this;
                 };
-                /**
-                 * Use materialized tabs
-                 */
                 ConfigBuilder.prototype.useTabs = function () {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./tabs/tabs"));
                     return this;
@@ -231,16 +242,16 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./tooltip/tooltip"));
                     return this;
                 };
-                ConfigBuilder.prototype.useTransitions = function () {
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./transitions/fadein-image"));
-                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./transitions/staggered-list"));
+                ConfigBuilder.prototype.useWaitCursor = function () {
+                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./wait-cursor/wait-cursor"));
                     return this;
                 };
-                /**
-                 * Use ripple/waves effect
-                 */
                 ConfigBuilder.prototype.useWaves = function () {
                     this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./waves/waves"));
+                    return this;
+                };
+                ConfigBuilder.prototype.useValidationContainer = function () {
+                    this.globalResources.push(aurelia_pal_1.PLATFORM.moduleName("./validation/validation-container"));
                     return this;
                 };
                 ConfigBuilder.prototype.useWell = function () {
@@ -251,6 +262,10 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                     this.noWavesAttach = true;
                     return this;
                 };
+                ConfigBuilder.prototype.useAutoButtonWaves = function (use) {
+                    this.autoButtonWaves = use;
+                    return this;
+                };
                 /**
                  * Don't globalize any resources
                  * Allows you to import yourself via <require></require>
@@ -259,13 +274,16 @@ System.register(["aurelia-pal"], function (exports_1, context_1) {
                     this.useGlobalResources = false;
                     return this;
                 };
-                ConfigBuilder.prototype.withScrollfirePatch = function () {
-                    this.useScrollfirePatch = true;
-                    return this;
-                };
+                tslib_1.__decorate([
+                    aurelia_1.deprecated({ error: false, message: "Will be removed soon. Please consider using `useColors`." }),
+                    tslib_1.__metadata("design:type", Function),
+                    tslib_1.__metadata("design:paramtypes", []),
+                    tslib_1.__metadata("design:returntype", ConfigBuilder)
+                ], ConfigBuilder.prototype, "useLegacyColors", null);
                 return ConfigBuilder;
             }());
             exports_1("ConfigBuilder", ConfigBuilder);
         }
     };
 });
+//# sourceMappingURL=config-builder.js.map
